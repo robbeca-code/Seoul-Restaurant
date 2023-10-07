@@ -36,10 +36,12 @@
             v-on:click="clickedSearchBtn"
             class="search-btn"
           >
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <span></span>
           </button>
         </form>
       </div>
+
+      <div className="header-line"></div>
     </header>
 
     <ShowList
@@ -191,23 +193,20 @@ export default {
 </script>
 
 <style scoped>
-:root {
-  --swiper-theme-color: #0e8130;
-}
-
 .main-container {
   width: 774px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   position: relative;
 }
 
 .main-header {
-  margin-bottom: 80px;
+  margin: 40px 0 80px;
 }
 
 .logo-btn {
-  width: 219px;
-  height: 45px;
+  width: 100%;
+  height: auto;
+  text-align: left;
   font-size: 1.3em;
 }
 
@@ -218,13 +217,14 @@ export default {
 .store-search-container {
   display: grid;
   grid-template-columns: 160px 1fr;
+  height: 38px;
   column-gap: 8px;
   margin-top: 40px;
 }
 
 .filter-btn {
   width: 100%;
-  height: 38px;
+  height: 100%;
   font-size: 0.88em;
   border-radius: 3px;
   border-color: #d1d1d1;
@@ -237,29 +237,36 @@ export default {
 
 .filter-btn > option:hover {
   color: #fff;
-  background-color: var(--swiper-theme-color);
+  background-color: #0e8130;
 }
 
 .search-form-container {
-  height: 38px;
+  height: 100%;
   width: 100%;
+  display: flex;
 }
 
-.search-form-container > input {
+.search-form {
+  display: block;
   height: 100%;
-  width: 93%;
+  width: 91%;
   background-color: #ebebee;
   border-style: none;
   border-radius: 3px 0 0 3px;
   padding-left: 7px;
 }
 
-.search-form-container > button {
-  width: 7%;
+.search-btn {
+  width: 9%;
   height: 100%;
+  line-height: 100%;
   border: 1px solid #d1d1d1;
-  background-color: #fff;
+  background-color: #0e8130;
   border-radius: 0 3px 3px 0;
+}
+
+.search-btn > span::before {
+  content: url("../assets/searchIconW.png");
 }
 
 /*  Modal Style  */
@@ -286,5 +293,176 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   display: none;
+}
+
+/* Max-Width: 700px */
+@media screen and (max-width: 700px) {
+  .main-container {
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
+
+  .main-header {
+    margin: 30px 0 16px;
+  }
+
+  .logo-btn {
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-size: 0.98em;
+  }
+
+  .text-color-green {
+    color: #0e8130;
+  }
+
+  .store-search-container {
+    display: grid;
+    grid-template-columns: 117px 1fr;
+    height: 37px;
+    column-gap: 5px;
+    margin-top: 50px;
+  }
+
+  .filter-btn {
+    width: 100%;
+    height: 100%;
+    font-size: 0.81em;
+    border-radius: 3px;
+    border-color: #d1d1d1;
+    padding-left: 3px;
+  }
+
+  .filter-info-text {
+    background-color: #f5f7f9;
+  }
+
+  .filter-btn > option:hover {
+    color: #fff;
+    background-color: #0e8130;
+  }
+
+  .search-form-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+
+  .search-form {
+    display: block;
+    height: 100%;
+    width: 91%;
+    background-color: #fff;
+    border: 1px solid #d1d1d1;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+    padding-left: 7px;
+  }
+
+  .search-btn {
+    width: 9%;
+    height: 100%;
+    line-height: 100%;
+    border: 1px solid #d1d1d1;
+    border-left: none;
+    background-color: #fff;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .search-btn > span::before {
+    content: url("../assets/searchIcon.png");
+  }
+
+  .header-line {
+    margin-top: 14px;
+    border: 1px solid #111111;
+  }
+}
+
+/* Max-Width: 450px */
+@media screen and (max-width: 450px) {
+  .logo-btn {
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-size: 0.8em;
+  }
+
+  .store-search-container {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    height: 34px;
+    column-gap: 5px;
+    margin-top: 40px;
+  }
+
+  .filter-btn {
+    width: 100%;
+    height: 100%;
+    font-size: 0.78em;
+    border-radius: 3px;
+    border-color: #d1d1d1;
+    padding-left: 3px;
+  }
+
+  .filter-info-text {
+    background-color: #f5f7f9;
+  }
+
+  .filter-btn > option:hover {
+    color: #fff;
+    background-color: var(--swiper-theme-color);
+  }
+
+  .search-form-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+
+  .search-form {
+    display: block;
+    height: 100%;
+    width: 85%;
+    background-color: #fff;
+    border: 1px solid #d1d1d1;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+    padding-left: 7px;
+    font-size: 0.82em;
+  }
+
+  .search-btn {
+    width: 15%;
+    height: 100%;
+    line-height: 100%;
+    border: 1px solid #d1d1d1;
+    border-left: none;
+    background-color: #fff;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .map-container {
+    position: fixed;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 310px;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  #map {
+    width: 270px;
+    height: 162px;
+    border-radius: 15px;
+    z-index: 999;
+    top: 215px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+  }
 }
 </style>

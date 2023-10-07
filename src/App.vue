@@ -52,4 +52,12 @@ button {
   width: 1024px;
   margin: 50px auto;
 }
+
+@media screen and (max-width: 700px) {
+  #app {
+    width: 100%;
+    padding: 0 20px 80px;
+    margin: 0;
+  }
+}
 </style>
