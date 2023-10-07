@@ -456,7 +456,7 @@ export default {
 
   #map {
     width: 270px;
-    height: 160px;
+    height: 162px;
     border-radius: 15px;
     z-index: 999;
     top: 215px;
