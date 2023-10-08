@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div class="store-list-container">
     <div v-if="items.length > 0" class="store-table-container">
       <table>
         <thead class="store-table-header">
@@ -29,7 +29,12 @@
                     ? store.UPSO_NM.slice(0, 13).concat("...")
                     : store.UPSO_NM
                 }}
-                <span class="store-kind">{{ store.BIZCND_CODE_NM }}</span>
+                <span class="store-kind">
+                  {{ store.BIZCND_CODE_NM }}
+                  <span class="mobile-state-show">
+                    {{ store.CGG_CODE_NM }}
+                  </span>
+                </span>
               </button>
             </td>
             <td class="store-address-data">
@@ -42,9 +47,7 @@
               </span>
             </td>
             <td class="store-vegetable-data">
-              <span>
-                {{ store.CRTFC_GBN_NM }}
-              </span>
+              <span></span>
             </td>
           </tr>
         </tbody>
@@ -123,7 +126,7 @@ export default {
 </script>
 
 <style scoped>
-.main-container {
+.store-list-container {
   position: relative;
 }
 
@@ -204,6 +207,10 @@ export default {
   color: #666666;
 }
 
+.mobile-state-show {
+  display: none;
+}
+
 .store-vegetable-data {
   text-align: center;
 }
@@ -261,5 +268,100 @@ export default {
 
 .alert-container > h3 {
   text-align: center;
+}
+
+/* Max-Width: 800px */
+@media screen and (max-width: 800px) {
+  .store-list-container {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Max-Width: 700px */
+@media screen and (max-width: 700px) {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .store-table-header {
+    background-color: transparent;
+    display: none;
+  }
+
+  .link {
+    width: 100%;
+    border-bottom: 1px solid #e9e9e9;
+    font-size: 1.19em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0 15px;
+  }
+
+  /*  Table Body Style  */
+  .store-table-data > tr {
+    border-bottom: none;
+    position: relative;
+    height: 101px;
+  }
+
+  .store-table-data > tr > * {
+    padding: 0;
+    font-size: 0.8em;
+    border-collapse: collapse;
+  }
+
+  .store-unique-code-data {
+    display: none;
+  }
+
+  .store-name-data {
+    text-align: left;
+  }
+
+  .store-address-data {
+    display: none;
+  }
+
+  .store-kind {
+    font-size: 0.86em;
+    font-weight: normal;
+    color: #666666;
+    padding-top: 3px;
+  }
+
+  .mobile-state-show {
+    display: inline-block;
+    font-size: 1em;
+    color: inherit;
+  }
+
+  .mobile-state-show::before {
+    content: "•";
+    margin: 0 1px;
+  }
+
+  .store-vegetable-data {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .store-vegetable-data > * {
+    color: #0e8130;
+  }
+
+  .store-vegetable-data > *::after {
+    content: "채식";
+    font-size: 0.97em;
+    padding: 1px 5px;
+    border-radius: 12px;
+    border: 1px solid #0e8130;
+  }
 }
 </style>

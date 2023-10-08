@@ -41,7 +41,7 @@
         </form>
       </div>
 
-      <div className="header-line"></div>
+      <div class="header-line"></div>
     </header>
 
     <ShowList
@@ -269,6 +269,10 @@ export default {
   content: url("../assets/searchIconW.png");
 }
 
+.header-line {
+  display: none;
+}
+
 /*  Modal Style  */
 .hidden {
   display: none;
@@ -376,6 +380,7 @@ export default {
   }
 
   .header-line {
+    display: block;
     margin-top: 14px;
     border: 1px solid #111111;
   }
@@ -413,7 +418,7 @@ export default {
 
   .filter-btn > option:hover {
     color: #fff;
-    background-color: var(--swiper-theme-color);
+    background-color: #0e8130;
   }
 
   .search-form-container {
@@ -442,6 +447,12 @@ export default {
     border-left: none;
     background-color: #fff;
     border-radius: 0 3px 3px 0;
+  }
+
+  .header-line {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid #111111;
   }
 
   .map-container {
